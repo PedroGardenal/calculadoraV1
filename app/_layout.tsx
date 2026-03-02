@@ -83,8 +83,8 @@ export default function RootLayout() {
   return (
     <View style={styles.bordas}>
 
-     
 
+      
       <SafeAreaView style={styles.Resultado}>
           <Text style={styles.tamanhoCaracter}> conta: {r}</Text>
           <Text style={styles.tamanhoCaracter}> Resultado: {result}</Text>
