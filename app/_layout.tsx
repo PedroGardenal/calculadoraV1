@@ -9,7 +9,7 @@ export default function RootLayout() {
   const apagarUltimoSinal = (r.slice(0,-1))
   const [a, setA] = useState(1)
   const [b, setB] = useState(0)
-  const [result, setResult] = useState(0)
+  const [result, setResult] = useState("")
 
   function adicionarUm(){
     setR(r+"1");
@@ -41,41 +41,56 @@ export default function RootLayout() {
   function adicionarZero(){
     setR(r+"0")
   }
+  function SinalDeRaizQuadrada(){
+    setR(r+"sqrt(")
+  }
+  function fecharAraizDeModoAutomatico() {
+  if (r.includes("sqrt(") && !r.endsWith(")")) {
+    return r + ")";
+  }
+  return r;
+  }
   function adicionarSinalDeMultiplicacao(){
-    setR(r+"*")
+    setR(fecharAraizDeModoAutomatico()+"*")
   }
   function adicionarSinalDeMenos(){
-    setR(r+"-")
+    setR(fecharAraizDeModoAutomatico()+"-")
   }
   function adicionarSinalDeMais(){
-    setR(r+"+")
+    setR(fecharAraizDeModoAutomatico()+"+")
   }
   function adicionarVirgula(){
-    setR(r+",")
+    setR(fecharAraizDeModoAutomatico()+",")
   }
 
   function adicionarSinalDeDivisao(){
-    setR(r+"/")
+    setR(fecharAraizDeModoAutomatico()+"/")
   }
 
-  function abrirSinalDeRaizQuadrada(){
-    setR(r+"sqrt(")
+  function darResultado() {
+  let expressaoFinal = r;
+
+  const aberturaDaRaiz = (expressaoFinal.match(/\(/g) || []).length;
+  const fechamentoDaRaiz = (expressaoFinal.match(/\)/g) || []).length;
+
+  if (aberturaDaRaiz > fechamentoDaRaiz) {
+    expressaoFinal += ")";
   }
 
-  function fecharSinalDeRaizQuadrada(){
-    setR(r+")")
+  try {
+    setResult(evaluate(expressaoFinal));
+  } catch {
+    setResult("Erro");
   }
-
-  function darResultado(){
-    setResult(evaluate(r))
-  }
+}
 
   function apagarTudo(){
     setR("")
   }
 
-  function apagarQuaseTudo(){
-      setR(apagarUltimoSinal) 
+  function apagarQuaseTudo() {
+  if (r.endsWith("sqrt(")) { setR(r.slice(0, -5)); } else 
+    { setR(r.slice(0, -1)); }
   }
 
 
@@ -115,17 +130,22 @@ export default function RootLayout() {
         <TouchableOpacity style={styles.teclas} onPress={adicionarVirgula}> <Text style={styles.tamanhoCaracter}> , </Text> </TouchableOpacity> 
         <TouchableOpacity style={styles.teclas} onPress={adicionarSinalDeDivisao}> <Text style={styles.tamanhoCaracter}> / </Text> </TouchableOpacity> 
         <TouchableOpacity style={styles.teclas} onPress={adicionarZero}> <Text style={styles.tamanhoCaracter}> 0 </Text> </TouchableOpacity>
-        <TouchableOpacity style={styles.teclas} onPress={(darResultado)}> <Text style={{fontSize: 50}}> = </Text> </TouchableOpacity>
+        <TouchableOpacity style={styles.teclas} onPress={(darResultado)}> <Text style={styles.tamanhoCaracter}> = </Text> </TouchableOpacity>
       </SafeAreaView>
 
-      <SafeAreaView>
-        <View style={{flexDirection: "row"}}>
-          <TouchableOpacity> <Text onPress={(abrirSinalDeRaizQuadrada)} style={styles.teclas}> Abrir Raiz Quadrada </Text></TouchableOpacity>
-          <TouchableOpacity> <Text onPress={(fecharSinalDeRaizQuadrada)} style={styles.teclas}> Fechar Raiz Quadrada </Text></TouchableOpacity>
-        </View>
-        <TouchableOpacity> <Text onPress={(apagarTudo)} style={styles.teclas}> APAGAR TUDO</Text> </TouchableOpacity>
-        <TouchableOpacity> <Text onPress={(apagarQuaseTudo)} style={styles.teclas}>Apagar Ultima Letra</Text> </TouchableOpacity> 
-      </SafeAreaView> 
+      <SafeAreaView style={{ flexDirection: "row" }}>
+        <TouchableOpacity style={styles.teclas} onPress={SinalDeRaizQuadrada}>
+          <Text style={styles.tamanhoCaracter}> √ </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.teclas} onPress={apagarTudo}>
+          <Text style={styles.tamanhoCaracter}> C </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.teclas} onPress={apagarQuaseTudo}>
+          <Text style={styles.tamanhoCaracter}> ⌫ </Text>
+        </TouchableOpacity>
+      </SafeAreaView>
 
     </View>
   
@@ -133,33 +153,48 @@ export default function RootLayout() {
 }
 
 const styles = StyleSheet.create({
-      teclas:{
-        margin: 10,
-        borderRadius: 20,
-        borderColor: "#07060444",
-        borderStyle: "dashed",
-        borderWidth: 10,
-        backgroundColor: "#07060444"
-      },
+  bordas: {
+    flex: 1,
+    justifyContent: "space-between",
+    backgroundColor: "#111",
+    padding: 10
+  },
 
-      Resultado:{
-        margin: 10,
-        borderRadius: 20,
-        borderColor: "#07060444",
-        borderStyle: "dashed",
-        borderWidth: 10,
-        backgroundColor: "#07060444"
-      },
+  Resultado: {
+    minHeight: 120,
+    justifyContent: "center",
+    alignItems: "flex-end",
+    backgroundColor: "#1e1e1e",
+    borderRadius: 20,
+    padding: 10,
+    marginBottom: 20
+  },
 
-      tamanhoCaracter: {
-        fontSize: 30
-      },
+  tamanhoCaracter: {
+    fontSize: 28,
+    color: "white"
+  },
 
-      bordas: {
-        alignItems: "center",
-        borderBlockColor: "black",
-        borderStyle: "solid",
-        borderWidth: 10
-      }
+  teclas: {
+  flex: 1,
+  margin: 6,
+  height: 50,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#2a2a2a",
+  borderRadius: 15,
+  padding: 10
+},
 
-    });
+Raizquadrada: {
+  fontSize: 28,
+  color: "white",
+  flex: 1,
+  margin: 6,
+  height: 70,
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "#2a2a2a",
+  borderRadius: 15,
+},
+});
