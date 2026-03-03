@@ -29,11 +29,11 @@ Melhorias Fulturas
 Imagens Utilizadas:
 
 
-Icone:
+Ícone:
 ![alt text](icon2.png)
 
 
-Imagen da Interfaçe
+Imagem da Interface
 
 ![alt text](CalculadoraToalmenteFuncional.jfif)
 
