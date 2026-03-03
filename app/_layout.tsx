@@ -121,7 +121,7 @@ export default function RootLayout() {
       <SafeAreaView>
         <View style={{flexDirection: "row"}}>
           <TouchableOpacity> <Text onPress={(abrirSinalDeRaizQuadrada)} style={styles.teclas}> Abrir Raiz Quadrada </Text></TouchableOpacity>
-          <TouchableOpacity> <Text onPress={(fecharSinalDeRaizQuadrada)} style={styles.teclas}> Abrir Raiz Quadrada </Text></TouchableOpacity>
+          <TouchableOpacity> <Text onPress={(fecharSinalDeRaizQuadrada)} style={styles.teclas}> Fechar Raiz Quadrada </Text></TouchableOpacity>
         </View>
         <TouchableOpacity> <Text onPress={(apagarTudo)} style={styles.teclas}> APAGAR TUDO</Text> </TouchableOpacity>
         <TouchableOpacity> <Text onPress={(apagarQuaseTudo)} style={styles.teclas}>Apagar Ultima Letra</Text> </TouchableOpacity> 
