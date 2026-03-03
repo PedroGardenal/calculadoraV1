@@ -156,8 +156,6 @@ const styles = StyleSheet.create({
       },
 
       bordas: {
-        marginLeft: 650,
-        marginRight: 650,
         alignItems: "center",
         borderBlockColor: "black",
         borderStyle: "solid",
