@@ -27,7 +27,16 @@ Melhorias Fulturas
    -Adicionar histórico de cálculos
 
 Imagens Utilizadas:
+
+
+Icone:
 ![alt text](icon2.png)
+
+
+Imagen da Interfaçe
+
+![alt text](CalculadoraToalmenteFuncional.jfif)
+
 
 Conclusão
    O projeto demonstra a aplicação prática de desenvolvimento mobile com React Native, manipulação de estados e uso de bibliotecas externas para cálculos matemáticos.
