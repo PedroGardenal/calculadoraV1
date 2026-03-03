@@ -134,17 +134,9 @@ export default function RootLayout() {
       </SafeAreaView>
 
       <SafeAreaView style={{ flexDirection: "row" }}>
-        <TouchableOpacity style={styles.teclas} onPress={SinalDeRaizQuadrada}>
-          <Text style={styles.tamanhoCaracter}> √ </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.teclas} onPress={apagarTudo}>
-          <Text style={styles.tamanhoCaracter}> C </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.teclas} onPress={apagarQuaseTudo}>
-          <Text style={styles.tamanhoCaracter}> ⌫ </Text>
-        </TouchableOpacity>
+        <TouchableOpacity style={styles.teclas} onPress={SinalDeRaizQuadrada}> <Text style={styles.tamanhoCaracter}> √ </Text> </TouchableOpacity>
+        <TouchableOpacity style={styles.teclas} onPress={apagarTudo}> <Text style={styles.tamanhoCaracter}> C </Text> </TouchableOpacity>
+        <TouchableOpacity style={styles.teclas} onPress={apagarQuaseTudo}> <Text style={styles.tamanhoCaracter}> ⌫ </Text> </TouchableOpacity>
       </SafeAreaView>
 
     </View>

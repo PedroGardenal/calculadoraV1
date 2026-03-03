@@ -1,50 +1,33 @@
-# Welcome to your Expo app 👋
+Calculadora Funcional
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+DESCRIÇÃO
+   Projeto para a criação de uma calculadora funcional.
+Ela te permite realizar contas de forma mais simples com os simbolos de "+", "-", "*", "/" e "√"
 
-## Get started
+Funcionalidades
+   -Adição(+)
+   -Subtração(-)
+   -Multiplicação(*)
+   -Divisão(/)
+   -Raiz Quadrada(√)
 
-1. Install dependencies
+Funcionalidades extras
+   -Botão de apagar ultimo caracter
+   -Botao de apagar a conta inteira
+   -Trata contas impossíveis como "Erro"
 
-   ```bash
-   npm install
-   ```
+Interface
+   -Layout Simples e Interativo
+   -Dark Mode para menor afeto de visão
+   -Resultados exibidos logo abaixo da conta
+   -Resultado fica salvo até haver alguma outra operação
 
-2. Start the app
+Melhorias Fulturas
+   -aumento de operações matemáticas
+   -Adicionar histórico de cálculos
 
-   ```bash
-   npx expo start
-   ```
+Imagens Utilizadas:
+![alt text](icon2.png)
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Conclusão
+   O projeto demonstra a aplicação prática de desenvolvimento mobile com React Native, manipulação de estados e uso de bibliotecas externas para cálculos matemáticos.
